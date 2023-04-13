@@ -4,8 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Pochta.ViewModel
@@ -93,7 +96,12 @@ namespace Pochta.ViewModel
             var isValidUser = userAuth.AuthentificateUser(new System.Net.NetworkCredential(Username,Password));
             if (isValidUser) 
             { 
+                var username = Username;
+                var password = new System.Net.NetworkCredential(string.Empty, Password).Password;
+
+                Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username, password), null );
                 IsViewVisible = false;
+
             }
             else
             {

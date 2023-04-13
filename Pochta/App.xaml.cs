@@ -21,7 +21,7 @@ namespace Pochta
             loginView.Show();
             loginView.IsVisibleChanged += (s, ev) =>
             {
-                if (loginView.IsVisible == null && loginView.IsLoaded)
+                if (loginView.IsVisible == false && loginView.IsLoaded)
                 {
                     var mainView = new MainView();
                     mainView.Show();
