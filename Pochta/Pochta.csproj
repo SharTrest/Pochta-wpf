@@ -28,9 +28,11 @@
 
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Utilities\" />
     <Folder Include="Styles\" />
-    <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mail.dll" Version="3.0.23025.1850" />
   </ItemGroup>
 
   <ItemGroup>

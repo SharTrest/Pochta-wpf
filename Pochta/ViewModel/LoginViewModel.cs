@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Pochta.Model;
+using Pochta.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
@@ -15,6 +17,8 @@ namespace Pochta.ViewModel
         private SecureString _password;
         private string _errorMessage;
         private bool _isViewVisible = true;
+
+        private UserAuth userAuth;
 
         public string Username
         {
@@ -70,6 +74,7 @@ namespace Pochta.ViewModel
         //
         public LoginViewModel()
         {
+            userAuth = new UserAuth();
             LoginCommand = new ViewModelCommand(ExucuteLoginCommand, CanExecuteLoginCommand);   
         }
 
@@ -85,7 +90,15 @@ namespace Pochta.ViewModel
 
         private void ExucuteLoginCommand (object obj)
         {
-
+            var isValidUser = userAuth.AuthentificateUser(new System.Net.NetworkCredential(Username,Password));
+            if (isValidUser) 
+            { 
+                IsViewVisible = false;
+            }
+            else
+            {
+                ErrorMessage = "Неверный логин или пароль";
+            }
         }
     }
 }

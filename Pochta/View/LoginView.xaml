@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pochta.View"
-        xmlns:viewModel="clr-namespace:Pochta.ViewModel"
+        xmlns:viewModel="clr-namespace:Pochta.ViewModel" xmlns:customcontrols="clr-namespace:Pochta.CustomControls"
         mc:Ignorable="d"
         Title="LoginView" Height="600" Width="900"
         Background="Transparent"
@@ -154,7 +154,7 @@
                                Margin="0,5,0,0" />
 
                     <TextBox x:Name="txtUser"
-                             Text ="{Binding Username}"
+                             Text ="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserat"
@@ -181,35 +181,28 @@
                                FontFamily="Montserat"
                                Margin="0,35,0,0" />
 
-                    <PasswordBox x:Name="txtPassword"
-                             FontSize="13"
-                             FontWeight="Medium"
-                             FontFamily="Montserat"
-                             Foreground="White"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,1"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Margin="0,5,0,0"
-                             Padding="20,0,0,0"
-                             >
-                        <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Images/key-icon.png"
-                                        Stretch="None"
-                                        AlignmentX="Left"/>
-                        </PasswordBox.Background>
-                    </PasswordBox>
+                    <customcontrols:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                        Height="28"
+                                                        Margin="0,5,0,0">
+                    </customcontrols:BindablePasswordBox>
+
+                    <TextBlock Text="{Binding ErrorMessage}"
+                               Foreground="#D7596D"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               FontFamily="Montserat"
+                               Margin="0,35,0,0" 
+                               TextWrapping="Wrap"/>
 
 
                     <Button x:Name="btnLogin"
+                            Command="{Binding LoginCommand}"
                             BorderThickness="0"
                             Content="Войти"
                             Grid.Column="2"
                             FontSize="13"
                             FontFamily="Montserat"
                             Cursor="Hand"
-                            Click="btnLogin_Click"
                             Foreground="White"
                             Margin="0,35,0,0">
 
