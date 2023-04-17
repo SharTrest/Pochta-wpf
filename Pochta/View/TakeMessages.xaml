@@ -14,31 +14,39 @@
         <viewModel:TakeMessagesViewModel/>
     </UserControl.DataContext>
 
-    <Border CornerRadius="20">
-        <ListView SelectedItem="{Binding SelectedMessage}" ItemsSource="{Binding Messages}" Width="600" Background="#212529" Margin="0,30,0,0" Height="530">
 
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+
+        </StackPanel>
+        <ListView ItemsSource="{Binding Messages}" Margin="20,30,20,20" Background="#212529" SelectedItem="SelectedMessage">
             <ListView.View>
-                
                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
-                    <GridView.Columns>
-                        <GridViewColumn Header="E-mail" Width="150"/>
-                        <GridViewColumn Header="Тема" Width="150"/>
-                        <GridViewColumn Header="Текст письма" Width="300"/>
-                    </GridView.Columns>
+                    <GridViewColumn Header="Отправитель" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Email}" Width="150" MaxHeight="20" FontSize="16" Foreground="White"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Тема письма" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Subject}" Width="150" MaxHeight="20" FontSize="16" Foreground="White"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Текст письма" Width="322">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Body}" Width="323" MaxHeight="20" FontSize="16" Foreground="White"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn> 
                 </GridView>
             </ListView.View>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="20">
-                        <TextBlock Text="{Binding Email}" Grid.Column="0" MaxHeight="30"/>
-                        <TextBlock Text="{Binding Subject}" Grid.Column="1" MaxHeight="30"/>
-                        <TextBlock Text="{Binding Body}" Grid.Column="2 " MaxHeight="30"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
         </ListView>
-    </Border>
-    
-    
-    
+    </Grid>
+
+
 </UserControl>

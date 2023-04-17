@@ -1,8 +1,4 @@
-﻿using Pochta.Model;
-using System.Threading;
-using System.Windows;
-
-namespace Pochta.ViewModel
+﻿namespace Pochta.ViewModel
 {
     public class HomeViewModel:ViewModelBase
     {

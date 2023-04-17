@@ -1,37 +1,65 @@
 ﻿using Pochta.Model;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Pochta.ViewModel
 {
     public class TakeMessagesViewModel:ViewModelBase
     {
-        public ObservableCollection<string> Messages { get; set; }
-
-        private MessageModel _currentMessge;
-
+        public ObservableCollection<MessageModel> _messages;
         private TakeMessage TakeMessage;
-        
 
+        private string _email, _subject, _body;
+        
+        public ObservableCollection<MessageModel> Messages
+        {
+            get => _messages;
+            set
+            {
+                _messages = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Email
+        {
+            get => _email;
+            set
+            {
+                _email = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Subject
+        {
+            get => _subject;
+            set
+            {
+                _subject = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Body
+        {
+            get => _body;
+            set
+            {
+                _body = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand TakeMessageCommand; 
 
-        public string Email => _currentMessge.Email.ToString();
-
-
-        public string Subject => _currentMessge.Subject.ToString();
-
-        public string Body => _currentMessge.Body.ToString();
-
         public TakeMessagesViewModel()
         {
-            //Messages = new ObservableCollection<MessageModel>();
-            Messages = new ObservableCollection<string>();
             TakeMessage = new TakeMessage();
-            //_currentMessge = new MessageModel();
-            Messages = TakeMessage.TakeAllMessages(Messages);  
-
+            Messages = new ObservableCollection<MessageModel>();
+            Messages = TakeMessage.TakeAllMessages(Messages);
         }
 
         private bool CanExecuteTakeMessages(object arg)
@@ -39,9 +67,5 @@ namespace Pochta.ViewModel
             throw new NotImplementedException();
         }
 
-        private void ExecuteTakeMessages(object obj)
-        {
-            TakeMessage.ProcessingWithMessage(Email, Subject, Body);
-        }
     }
 }

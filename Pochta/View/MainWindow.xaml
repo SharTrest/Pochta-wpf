@@ -51,23 +51,18 @@
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding HomeCommand}"
-                              IsChecked="True" Width="224">
-
+                              IsChecked="True" 
+                              Width="224">
+                                
                         <Grid>
 
-                            <Image Source="/Images/user-icon.png"
+                            <Image Source="/Images/user.png"
                                    Style="{StaticResource ImageStyle}" />
 
-                            <TextBlock Text="Home"
-                                       FontFamily="/Fonts/#Rubik" 
-                                       VerticalAlignment ="Center"
-                                       HorizontalAlignment = "Left"
-                                       Foreground ="#DBDBDB"
-                                       FontSize ="18"
-                                       Margin =" 70,0,0,0"/>
+                            <TextBlock Text="Пользователь"
+                                       Style="{StaticResource TextStyle}" />
 
                         </Grid>
-
                     </Menu:Btn>
 
                     <!--// Customer //-->
@@ -77,17 +72,12 @@
 
                         <Grid>
 
-
                             <Image Source="/Images/WriteMessageIcon.png"
                                    Style="{StaticResource ImageStyle}" />
 
+
                             <TextBlock Text="Написать письмо"
-                                       FontFamily="/Fonts/#Rubik" 
-                                       VerticalAlignment ="Center"
-                                       HorizontalAlignment = "Left"
-                                       Foreground ="#DBDBDB"
-                                       FontSize ="18"
-                                       />
+                                       Style="{StaticResource TextStyle}" />
 
                         </Grid>
 
@@ -100,49 +90,17 @@
 
                         <Grid>
 
-                            <Image Source="/Images/WriteMessageIcon.png"
-                                   HorizontalAlignment = "Left"
-                                   VerticalAlignment = "Center"
-                                   Stretch ="Fill"
-                                   Height="20"
-                                   Width="30"
-                                   Margin="22,0,0,0"          
-                                   />
+                            <Image Source="/Images/AllMessagesIcon.png"
+                                   Style="{StaticResource ImageStyle}" />
 
-                            <TextBlock Text="Написать письмо" 
-                                       FontFamily="/Fonts/#Rubik" 
-                                       VerticalAlignment ="Center"
-                                       HorizontalAlignment = "Left"
-                                       Foreground ="#DBDBDB"
-                                       FontSize ="18"
-                                       Margin =" 70,0,0,0"/>
+                            <TextBlock Text="Получить письмо"
+                                       Style="{StaticResource TextStyle}" />
 
                         </Grid>
 
                     </Menu:Btn>
 
                     <!--// Settings //-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding SettingsCommand}">
-
-                        <Grid>
-
-                            <Image Source="/Images/user.png"
-                                   Style="{StaticResource ImageStyle}" />
-
-                            <TextBlock Text="Settings"
-                                       FontFamily="/Fonts/#Rubik" 
-                                       VerticalAlignment ="Center"
-                                       HorizontalAlignment = "Left"
-                                       Foreground ="#DBDBDB"
-                                       FontSize ="18"
-                                       Margin =" 70,0,0,0"/>
-
-
-                        </Grid>
-
-                    </Menu:Btn>
 
                 </StackPanel>
 

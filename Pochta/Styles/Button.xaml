@@ -17,12 +17,13 @@
 
                     <Border x:Name="border"
                             Height="50"
-                            Width="228"
-                            BorderThickness="0">
+                            Width="220"
+                            BorderThickness="1,1,1,1" 
+                            BorderBrush="DarkGray">
 
                         <Border.Background>
-                            <SolidColorBrush x:Name="BorderBackground"
-                                             Color="#1B1448"/>
+                        <SolidColorBrush x:Name="BorderBackground"
+                                             Color="#272B2F"/>
                         </Border.Background>
 
                         <Grid>
@@ -32,12 +33,12 @@
                                     Width="4"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
-                                    Background="White"
+                                    Background="red"
                                     Visibility="Collapsed"
                                     CornerRadius="2"/>
 
-                            <ContentControl />
-
+                            <ContentPresenter />
+                             
                         </Grid>
                         
                     </Border>
@@ -62,7 +63,7 @@
                                 <Storyboard>
                                     <ColorAnimation Storyboard.TargetName="BorderBackground"
                                                     Storyboard.TargetProperty="Color"
-                                                    From="#1B1448"
+                                                    From="#212529"
                                                     To="#278BEF"
                                                     Duration="0:0:0.3"/>
                                 </Storyboard>
@@ -79,7 +80,7 @@
                                     <ColorAnimation Storyboard.TargetName="BorderBackground"
                                                     Storyboard.TargetProperty="Color"
                                                     From="#278BEF"
-                                                    To="#1B1448"
+                                                    To="#212529"
                                                     Duration="0:0:0.3"/>
                                 </Storyboard>
                             </BeginStoryboard>

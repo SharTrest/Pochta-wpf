@@ -1,7 +1,5 @@
 ﻿using Pochta.Model;
 using Pochta.Utilities;
-using System.Threading;
-using System.Windows;
 
 namespace Pochta.ViewModel
 {

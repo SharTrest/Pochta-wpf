@@ -2,9 +2,7 @@
 using Limilabs.Client.IMAP;
 using Limilabs.Mail.Headers;
 using Limilabs.Mail;
-using Limilabs.Mail.Fluent;
 using System.Collections.Generic;
-using System.Windows;
 using System.Collections.ObjectModel;
 using System.Threading;
 
@@ -29,7 +27,7 @@ namespace Pochta.Model
             else return smtp;
         }
 
-        public ObservableCollection<string> TakeAllMessages(ObservableCollection<string> Messages)
+        public ObservableCollection<MessageModel> TakeAllMessages(ObservableCollection<MessageModel> Messages)
         {
                 Messages.Clear();
                 using (Imap imap = new Imap())
@@ -58,11 +56,9 @@ namespace Pochta.Model
                                 Subject = subj,
                                 Body = body
                             };
-
-                            Messages.Add(message.Email);
-                            Messages.Add(message.Subject);
-                            Messages.Add(message.Body);
+                            Messages.Add(message);
                             }
+
                         }
                     }
                     catch

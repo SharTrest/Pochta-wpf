@@ -1,15 +1,6 @@
 ﻿using Pochta.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Limilabs.Client.IMAP;
-using Limilabs.Mail.Headers;
-using Limilabs.Mail;
 using System.Net;
-using Limilabs.Mail.Fluent;
 
 namespace Pochta.Utilities
 {

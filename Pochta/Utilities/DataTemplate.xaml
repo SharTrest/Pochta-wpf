@@ -16,8 +16,4 @@
         <view:TakeMessages/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
-        <view:Settings/>
-    </DataTemplate>
-    
 </ResourceDictionary>
