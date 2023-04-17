@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pochta.Model
 {
-    public interface ISendMessage
+    public interface ISendMessages
     {
-        public void sendMessage(string Email, string textSubject, string textMessage);
+        public void MessageSend(string Email, string textSubject, string textMessage);
         string Domain();
     }
 }

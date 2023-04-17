@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pochta.Model
 {
-    internal class MessageModel
+    public class MessageModel
     {
         public string Email { get; set; }
         public string Subject { get; set; }
-        public string Message { get; set; }
+        public string Body { get; set; }
     }
 }

@@ -9,11 +9,8 @@ using System.Windows;
 
 namespace Pochta.Model
 {
-    internal class SendMessage : ISendMessage
+    internal class SendMessage : ISendMessages
     {
-
-
-
         public string Domain()
         {
             string username = Thread.CurrentPrincipal.Identity.Name;
@@ -32,7 +29,7 @@ namespace Pochta.Model
         }
 
 
-        public void sendMessage(string Email, string textSubject, string textMessage)
+        public void MessageSend(string Email, string textSubject, string textMessage)
         {
             string username = Thread.CurrentPrincipal.Identity.Name;
             string password = Thread.CurrentPrincipal.Identity.AuthenticationType;

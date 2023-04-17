@@ -54,7 +54,7 @@ namespace Pochta.ViewModel
 
         private void ExecuteSendMessageCommand (object obj)
         {
-            _sendMesage.sendMessage(Email, Subject, Text);
+            _sendMesage.MessageSend(Email, Subject, Text);
         }
 
         

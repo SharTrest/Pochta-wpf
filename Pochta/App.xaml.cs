@@ -28,8 +28,8 @@ namespace Pochta
                     loginView.Close();
                 }
             };
-            //var mainView = new MainWindow();
-            //mainView.Show();
+        //    var mainView = new MainWindow();
+        //mainView.Show();
 
         }
     }

@@ -4,19 +4,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pochta.View"
-             xmlns:viewModel="clr-namespace:Pochta.ViewModel"
+             xmlns:viewModel="clr-namespace:Pochta.ViewModel" 
+             xmlns:customcontrols="clr-namespace:Pochta.CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="622"
              Style="{StaticResource PageStyle}">
+    
+    <UserControl.DataContext>
+        <viewModel:TakeMessagesViewModel/>
+    </UserControl.DataContext>
+
     <Border CornerRadius="20">
-        <ListView  x:Name="Messages" Margin="0,0,20,0" Background="#212529" Foreground="White">
+        <ListView SelectedItem="{Binding SelectedMessage}" ItemsSource="{Binding Messages}" Width="600" Background="#212529" Margin="0,30,0,0" Height="530">
+
             <ListView.View>
-                <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="Полученные сообщения" >
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Emails}" Header="Email" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Subjects}" Header="Тема" Width="150"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Textx}" Header="Текст сообщения" Width="300"/>
+                
+                <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
+                    <GridView.Columns>
+                        <GridViewColumn Header="E-mail" Width="150"/>
+                        <GridViewColumn Header="Тема" Width="150"/>
+                        <GridViewColumn Header="Текст письма" Width="300"/>
+                    </GridView.Columns>
                 </GridView>
             </ListView.View>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="20">
+                        <TextBlock Text="{Binding Email}" Grid.Column="0" MaxHeight="30"/>
+                        <TextBlock Text="{Binding Subject}" Grid.Column="1" MaxHeight="30"/>
+                        <TextBlock Text="{Binding Body}" Grid.Column="2 " MaxHeight="30"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Border>
+    
+    
+    
 </UserControl>

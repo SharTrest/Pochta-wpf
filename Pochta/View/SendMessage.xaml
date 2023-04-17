@@ -10,42 +10,23 @@
              Style="{StaticResource PageStyle}">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="1">
         <TextBlock Text="E-mail"
                    Foreground="white"
-                   FontSize="16"
+                   FontSize="18"
                    Margin="20,5,0,0"/>
 
         <TextBox x:Name="Email"
                  Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
-                 Width="500"
+                 Width="582"
                  Foreground="White"
                  Grid.Row="0"
-                 Height="20"
-                 Background="#212529"
-                 HorizontalAlignment="Left"
-                 Margin="20,15,0,0"
-                 BorderBrush="DarkGray"
-                 BorderThickness="1,1,1,1"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="1">
-            
-        <TextBlock Text="Тема"
-                   Foreground="white"
-                   FontSize="16"
-                   Margin="20,5,0,0"/>
-
-        <TextBox x:Name="Subject"
-                 Text="{Binding Subject, UpdateSourceTrigger=PropertyChanged}"
-                 Width="500"
-                 Foreground="White"
-                 Grid.Row="0"
-                 Height="20"
+                 FontSize="16"
                  Background="#212529"
                  HorizontalAlignment="Left"
                  Margin="20,15,0,0"
@@ -54,24 +35,46 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-
-            <TextBlock Text="Текст сообщения"
+            
+        <TextBlock Text="Тема"
                    Foreground="white"
-                   FontSize="16"
+                   FontSize="18"
                    Margin="20,5,0,0"/>
 
-            <TextBox x:Name="TextMessage"
-                     Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"
-                     TextWrapping="Wrap"
+        <TextBox x:Name="Subject"
+                 Text="{Binding Subject, UpdateSourceTrigger=PropertyChanged}"
                  Width="582"
                  Foreground="White"
                  Grid.Row="0"
-                 Height="300"
+                 FontSize="16"
                  Background="#212529"
                  HorizontalAlignment="Left"
                  Margin="20,15,0,0"
                  BorderBrush="DarkGray"
                  BorderThickness="1,1,1,1"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+
+            <TextBlock Text="Текст сообщения"
+                   Foreground="white"
+                   FontSize="18"
+                   Margin="20,5,0,0"/>
+
+            <TextBox x:Name="TextMessage"
+                     Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     Width="582"
+                     Foreground="White"
+                     Grid.Row="0"
+                     Height="270"
+                     FontSize="16"
+                     Background="#212529"
+                     HorizontalAlignment="Left"
+                     Margin="20,15,0,0"
+                     BorderBrush="DarkGray"
+                     BorderThickness="1,1,1,1"/>
             <Button x:Name="ButtonSendMessage"
                     Width="100"
                     Height="20"

@@ -8,7 +8,7 @@ namespace Pochta.ViewModel
     {
         public HomeViewModel()
         {
-            MessageBox.Show(Thread.CurrentPrincipal.Identity.Name, Thread.CurrentPrincipal.Identity.AuthenticationType);
+            //MessageBox.Show(Thread.CurrentPrincipal.Identity.Name, Thread.CurrentPrincipal.Identity.AuthenticationType);
         }
 
     }
