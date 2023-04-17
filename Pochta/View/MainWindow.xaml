@@ -87,7 +87,7 @@
                                        HorizontalAlignment = "Left"
                                        Foreground ="#DBDBDB"
                                        FontSize ="18"
-                                       Margin =" 70,0,0,0"/>
+                                       />
 
                         </Grid>
 

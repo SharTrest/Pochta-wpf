@@ -26,12 +26,7 @@ namespace Pochta.ViewModel
         public MainViewModel() 
         {
             _userAuth = new UserAuth();
-            LoadCurrentData();
         }
 
-        private void LoadCurrentData()
-        {
-            MessageBox.Show(Thread.CurrentPrincipal.Identity.Name, Thread.CurrentPrincipal.Identity.AuthenticationType);
-        }
     }
 }

@@ -24,5 +24,15 @@ namespace Pochta.View
         {
             InitializeComponent();
         }
+
+        private void SendMessage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSendMessage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

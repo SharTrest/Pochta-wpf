@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Pochta.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -8,11 +10,12 @@ using System.Windows;
 
 namespace Pochta.ViewModel
 {
-    public class TakeMessagesViewModel
+    public class TakeMessagesViewModel:ViewModelBase
     {
+        ObservableCollection<MessageModel> Messages;
         public TakeMessagesViewModel()
         {
-            MessageBox.Show(Thread.CurrentPrincipal.Identity.Name, Thread.CurrentPrincipal.Identity.AuthenticationType);
+           
         }
     }
 }

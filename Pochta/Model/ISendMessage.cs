@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Pochta.Model
 {
-    public interface IUser
+    public interface ISendMessage
     {
-        bool AuthentificateUser(NetworkCredential credential);
+        public void sendMessage(string Email, string textSubject, string textMessage);
+        string Domain();
     }
 }

@@ -4,10 +4,87 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pochta.View"
+             xmlns:viewModel="clr-namespace:Pochta.ViewModel" xmlns:customcontrols="clr-namespace:Pochta.CustomControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="600" d:DesignWidth="622"
              Style="{StaticResource PageStyle}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+        <TextBlock Text="E-mail"
+                   Foreground="white"
+                   FontSize="16"
+                   Margin="20,5,0,0"/>
+
+        <TextBox x:Name="Email"
+                 Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
+                 Width="500"
+                 Foreground="White"
+                 Grid.Row="0"
+                 Height="20"
+                 Background="#212529"
+                 HorizontalAlignment="Left"
+                 Margin="20,15,0,0"
+                 BorderBrush="DarkGray"
+                 BorderThickness="1,1,1,1"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
             
+        <TextBlock Text="Тема"
+                   Foreground="white"
+                   FontSize="16"
+                   Margin="20,5,0,0"/>
+
+        <TextBox x:Name="Subject"
+                 Text="{Binding Subject, UpdateSourceTrigger=PropertyChanged}"
+                 Width="500"
+                 Foreground="White"
+                 Grid.Row="0"
+                 Height="20"
+                 Background="#212529"
+                 HorizontalAlignment="Left"
+                 Margin="20,15,0,0"
+                 BorderBrush="DarkGray"
+                 BorderThickness="1,1,1,1"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+
+            <TextBlock Text="Текст сообщения"
+                   Foreground="white"
+                   FontSize="16"
+                   Margin="20,5,0,0"/>
+
+            <TextBox x:Name="TextMessage"
+                     Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"
+                     TextWrapping="Wrap"
+                 Width="582"
+                 Foreground="White"
+                 Grid.Row="0"
+                 Height="300"
+                 Background="#212529"
+                 HorizontalAlignment="Left"
+                 Margin="20,15,0,0"
+                 BorderBrush="DarkGray"
+                 BorderThickness="1,1,1,1"/>
+            <Button x:Name="ButtonSendMessage"
+                    Width="100"
+                    Height="20"
+                    Content="Отправить"
+                    Background="#212529"
+                    Foreground="DarkGray"
+                    Command="{Binding SendMessageCommand}"
+                    HorizontalAlignment="Left"
+                    Margin="504,15,0,0"/>
+        </StackPanel>
+
+
     </Grid>
+
+
 </UserControl>
