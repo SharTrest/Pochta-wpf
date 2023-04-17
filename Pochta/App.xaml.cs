@@ -23,11 +23,13 @@ namespace Pochta
             {
                 if (loginView.IsVisible == false && loginView.IsLoaded)
                 {
-                    var mainView = new MainView();
+                    var mainView = new MainWindow();
                     mainView.Show();
                     loginView.Close();
                 }
             };
+            //var mainView = new MainWindow();
+            //mainView.Show();
 
         }
     }

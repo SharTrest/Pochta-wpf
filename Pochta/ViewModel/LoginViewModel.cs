@@ -1,14 +1,7 @@
-﻿using Pochta.Model;
-using Pochta.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Pochta.Utilities;
 using System.Security;
 using System.Security.Principal;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Pochta.ViewModel
@@ -78,7 +71,7 @@ namespace Pochta.ViewModel
         public LoginViewModel()
         {
             userAuth = new UserAuth();
-            LoginCommand = new ViewModelCommand(ExucuteLoginCommand, CanExecuteLoginCommand);   
+            LoginCommand = new RelayCommand(ExucuteLoginCommand, CanExecuteLoginCommand);   
         }
 
         private bool CanExecuteLoginCommand(object obj)

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-    <Style x:Key="Image_Style"
+    <Style x:Key="ImageStyle"
            TargetType="Image">
 
         <Setter Property="HorizontalAlignment"
@@ -19,6 +19,6 @@
                 Value="22,0,0,0"/>
 
     </Style>
-    
-    
+
+
 </ResourceDictionary>
