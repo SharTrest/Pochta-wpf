@@ -10,16 +10,68 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Border CornerRadius="0,20,20,0" Margin="0,5,5,0">
+            <Grid>
 
-            <Image Source="/Images/home_page.png"
-                   Stretch="Fill" />
 
+                <Border Width="100" 
+                        Height="100" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top"
+                        Margin="50,50,0,0"
+                        BorderBrush="DarkGray"
+                        BorderThickness="1,1,1,1">
+
+                    <Image Source="/Images/user.png"/>
+
+                </Border>
+               
+
+
+            </Grid>
         </Border>
+
+        <Grid Grid.Column="1">
+            <StackPanel MaxWidth="250" Margin="20,50,0,0" HorizontalAlignment="Left">
+                <Border Style="{StaticResource TextBorderStyle}">
+                    <TextBlock x:Name="UserName" HorizontalAlignment="Left"
+                               Width="200"
+                                Text="{Binding Username}"
+                                Style="{StaticResource TextStyle}">
+                    </TextBlock>
+                </Border>
+
+                <Button
+                                Width="150"
+                                Height="40"
+                                Content="Выйти из аккаунта"
+                                Margin="10,10,10,0"
+                                FontSize="16"
+                                FontFamily="Montserat"
+                                Foreground="Gray"
+                                Background="#272B2F"
+                                HorizontalAlignment="Center"
+                                Style="{Binding ButtonChangedStyle}">
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" Height="25"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </UserControl>

@@ -204,18 +204,9 @@
                             FontFamily="Montserat"
                             Cursor="Hand"
                             Foreground="White"
-                            Margin="0,35,0,0">
+                            Margin="0,35,0,0"
+                            Style="{StaticResource LoginButton}">
 
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#462AD8"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#28AEED"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
 
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
