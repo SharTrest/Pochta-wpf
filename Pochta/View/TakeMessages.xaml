@@ -14,39 +14,56 @@
         <viewModel:TakeMessagesViewModel/>
     </UserControl.DataContext>
 
+    <UserControl.Resources>
+        <Style TargetType="{x:Type ListViewItem}" >
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="true">
+                    <Setter Property="ListViewItem.Background" Value="Black" />
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ListViewItem.Background" Value="Black" />
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
 
     <Grid>
-        <StackPanel Orientation="Horizontal">
+        <ListView ItemsSource="{Binding Messages}" 
+                  Margin="20,30,20,20" 
+                  Background="#212529" 
+                  SelectedItem="{Binding ElementName=Control, Path=SelectxedMessage}"
+                  >
 
-        </StackPanel>
-        <ListView ItemsSource="{Binding Messages}" Margin="20,30,20,20" Background="#212529" SelectedItem="SelectedMessage">
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
                     <GridViewColumn Header="Отправитель" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Email}" Width="150" MaxHeight="20" FontSize="16" Foreground="White"/>
+                                <TextBlock Text="{Binding Email}" Width="150" MaxHeight="20" FontSize="16" Foreground="White" Style="{Binding TextStyle}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Тема письма" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Subject}" Width="150" MaxHeight="20" FontSize="16" Foreground="White"/>
+                                <TextBlock Text="{Binding Subject}" Width="150" MaxHeight="20" FontSize="16" Foreground="White" Style="{Binding TextStyle}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Текст письма" Width="322">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Body}" Width="323" MaxHeight="20" FontSize="16" Foreground="White"/>
+                                <TextBlock Text="{Binding Body}" Width="323" MaxHeight="20" FontSize="16" Foreground="White" Style="{Binding TextStyle}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
-                    </GridViewColumn> 
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
     </Grid>
-
 
 </UserControl>

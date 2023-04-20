@@ -1,4 +1,6 @@
 ﻿using Pochta.Model;
+using Pochta.Utilities;
+using Pochta.View;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -6,13 +8,16 @@ using System.Windows.Input;
 
 namespace Pochta.ViewModel
 {
-    public class TakeMessagesViewModel:ViewModelBase
+    public class TakeMessagesViewModel : ViewModelBase
     {
         public ObservableCollection<MessageModel> _messages;
         private TakeMessage TakeMessage;
+        private MessageModel _message;
+        object _view;
 
         private string _email, _subject, _body;
-        
+
+
         public ObservableCollection<MessageModel> Messages
         {
             get => _messages;
@@ -20,6 +25,28 @@ namespace Pochta.ViewModel
             {
                 _messages = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public object View
+            {
+            get => _view;
+            set
+            {
+                _view = value;
+                OnPropertyChanged();
+            }
+            }
+
+        public MessageModel SelectedMessage
+        {
+            get => _message;
+            set 
+            {
+                _message = value;
+                OnPropertyChanged();
+                //var messageWindow = new SelectedMessageView();
+                //messageWindow.Show();
             }
         }
 
@@ -53,7 +80,11 @@ namespace Pochta.ViewModel
             }
         }
 
-        public ICommand TakeMessageCommand; 
+        public ICommand TakeMessageCommand;
+
+        public ICommand SelectedMessageCommand;
+
+        private void SelectedMessageView(object obj) => View = new SelectedMessageViewModel();
 
         public TakeMessagesViewModel()
         {
