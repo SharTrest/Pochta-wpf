@@ -17,18 +17,25 @@ namespace Pochta
     {
         protected void Application_Startup(object sender, StartupEventArgs e)
         {
-            var loginView = new LoginView();
-            loginView.Show();
-            loginView.IsVisibleChanged += (s, ev) =>
-            {
-                if (loginView.IsVisible == false && loginView.IsLoaded)
+                var loginView = new LoginView();
+                loginView.Show();
+                loginView.IsVisibleChanged += (s, ev) =>
                 {
-                    var mainView = new MainWindow();
-                    mainView.Show();
-                    loginView.Close();
-                }
-            };
+                    if (loginView.IsVisible == false && loginView.IsLoaded)
+                    {
+                        var mainView = new MainWindow();
+                        mainView.Show();
+                        loginView.Close();
+                        if (mainView.IsLoaded && mainView.IsVisible == false)
+                        {
+                            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+                            Application.Current.Shutdown();
+                        }
+                    }
+                };
+                
 
         }
-    }
+
+     }
 }

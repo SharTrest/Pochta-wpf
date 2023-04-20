@@ -7,7 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="622">
 
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityHome"/>
+    </UserControl.Resources>
 
+    <UserControl.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibilityHome}"/>
+    </UserControl.Visibility>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -18,15 +25,15 @@
             <Grid>
 
 
-                <Border Width="100" 
-                        Height="100" 
+                <Border Width="90" 
+                        Height="90" 
                         HorizontalAlignment="Center" 
                         VerticalAlignment="Top"
                         Margin="50,50,0,0"
                         BorderBrush="DarkGray"
                         BorderThickness="1,1,1,1">
 
-                    <Image Source="/Images/user.png"/>
+                    <Image Source="/Images/user.png" Stretch="Fill"/>
 
                 </Border>
                
@@ -36,7 +43,9 @@
         </Border>
 
         <Grid Grid.Column="1">
-            <StackPanel MaxWidth="250" Margin="20,50,0,0" HorizontalAlignment="Left">
+            <StackPanel MaxWidth="250" 
+                        Margin="20,50,0,0" 
+                        HorizontalAlignment="Left">
                 <Border Style="{StaticResource TextBorderStyle}">
                     <TextBlock x:Name="UserName" HorizontalAlignment="Left"
                                Width="200"
@@ -45,17 +54,16 @@
                     </TextBlock>
                 </Border>
 
-                <Button
+                <Button         Command="{Binding ChangeUserCommand}" 
+                                x:Name="ButtonChangedStyle"
                                 Width="150"
                                 Height="40"
                                 Content="Выйти из аккаунта"
                                 Margin="10,10,10,0"
                                 FontSize="16"
                                 FontFamily="Montserat"
-                                Foreground="Gray"
-                                Background="#272B2F"
                                 HorizontalAlignment="Center"
-                                Style="{Binding ButtonChangedStyle}">
+                                Style="{StaticResource ButtonChangedStyle}">
 
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -63,7 +71,7 @@
                                         CornerRadius="20"
                                         Background="{TemplateBinding Background}">
                                 <ContentPresenter VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"/>
+                                                  HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>

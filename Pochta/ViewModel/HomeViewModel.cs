@@ -38,18 +38,21 @@ namespace Pochta.ViewModel
         public HomeViewModel()
         {
             Username = Thread.CurrentPrincipal.Identity.Name;
-           // ChangeUserCommand = new RelayCommand(ExecuteChangeUserCommand, CanExecuteChangeUserCommand);
+            ChangeUserCommand = new RelayCommand(ExecuteChangeUserCommand, CanExecuteChangeUserCommand);
         }
 
         private bool CanExecuteChangeUserCommand(object arg)
         {
-            MessageBox.Show("Вы действительно хотите поменять пользователя?");
             return true;
         }
 
         private void ExecuteChangeUserCommand(object obj)
         {
-            throw new NotImplementedException();
+            if (MessageBox.Show("Вы действительно хотите сменить аккаунт?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                IsViewVisible = false;
+
+            }
         }
     }
 }

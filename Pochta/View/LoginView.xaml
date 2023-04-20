@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pochta.View"
-        xmlns:viewModel="clr-namespace:Pochta.ViewModel" xmlns:customcontrols="clr-namespace:Pochta.CustomControls"
+        xmlns:viewModel="clr-namespace:Pochta.ViewModel" 
+        xmlns:customcontrols="clr-namespace:Pochta.CustomControls"
         mc:Ignorable="d"
         Title="LoginView" Height="600" Width="900"
         Background="Transparent"
@@ -23,7 +24,9 @@
     </Window.Resources>
     
     <Window.Visibility>
-        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+        <Binding Path="IsViewVisible" 
+                 Mode="TwoWay" 
+                 Converter="{StaticResource BooleanToVisibility}"/>
     </Window.Visibility>
     
     <Border CornerRadius="30">
